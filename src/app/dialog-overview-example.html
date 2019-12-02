@@ -1,0 +1,40 @@
+<!-- <ol>
+  <li>
+    <mat-form-field>
+      <input matInput [(ngModel)]="name" placeholder="What's your name?">
+    </mat-form-field>
+  </li>
+  <li>
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
+  </li>
+  <li *ngIf="animal">
+    You chose: <i>{{animal}}</i>
+  </li>
+</ol> -->
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar [ngStyle]="{'background-image': 'url('+data.imageUrl+')'}"></div>
+    <mat-card-title>{{data.name}}</mat-card-title>
+    <mat-card-subtitle>{{data.category}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="data.imageUrl" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      {{data.price}}
+    </p>
+  </mat-card-content>
+  <mat-card-content>
+    <p>
+      {{data.title}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="openDialog()">Click for more details</button>
+  </mat-card-actions>
+</mat-card>
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

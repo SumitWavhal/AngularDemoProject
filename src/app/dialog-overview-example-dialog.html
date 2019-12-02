@@ -1,0 +1,62 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content>
+  Category: {{data.category}}
+</div>
+<div mat-dialog-content>
+ Price: {{data.price}}
+</div>
+
+<mat-divider  style="padding: 10px !important;"></mat-divider>
+
+<div mat-dialog-content>
+Total review count : {{data.reviewCount}}
+</div>
+
+<div mat-dialog-content *ngFor="let rating of data.topScores">
+  {{rating.topic}} : <app-star-rating [rating]="rating.score"  [starCount]="starCount" [color]="starColor" (ratingUpdated)="onRatingChanged($event)"></app-star-rating>
+</div>
+
+<mat-divider style="padding: 10px !important;"></mat-divider>
+
+<div mat-dialog-content>
+  Last review date: {{convertDateToString(data.latestReviewDate)}}
+</div>
+
+<div mat-dialog-content>
+  Product Created date: {{convertDateToString(data.createdAt)}}
+</div>
+
+<div mat-dialog-content>
+  Product Id: {{data.productId}}
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Ok</button>
+</div>
+
+<!-- {
+  price: '₹ 1,799.00',
+  latestReviewDate: '2018-10-21T00:00:00.000Z',
+  domain: 'amazon.in',
+  imageUrl: 'https://m.media-amazon.com/images/I/61tGayYkbaL._AC_US60_SCLZZZZZZZ__.jpg',
+  name: 'Bluetooth Speakers',
+  title: 'JBL Go Portable Wireless Bluetooth Speaker with Mic (Black)',
+  category: 'Bluetooth Speakers',
+  productId: 'ABCD1234',
+  createdAt: '2018-08-31T09:36:08.448Z',
+  reviewCount: 3013,
+  topScores: [{
+          topic: 'Sound Quality',
+          score: 4.6
+      }, {
+          topic: 'Bass',
+          score: 4.2
+      }, {
+          topic: 'Design and Build',
+          score: 4.2
+      }, {
+          topic: 'Battery Backup',
+          score: 4.2
+      }
+  ]
+}; -->
